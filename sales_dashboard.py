@@ -1543,37 +1543,7 @@ with tabs[4]:  # 市场渗透率
 
             st.plotly_chart(fig_region_penetration, use_container_width=True)
 
-            # 区域渗透率详细数据 - 改为图表而不是表格
-            st.markdown('<div class="sub-header section-gap">区域渗透率详细数据</div>', unsafe_allow_html=True)
-
-            # 创建柱状图
-            fig_penetration = px.bar(
-                region_penetration,
-                x='所属区域',
-                y='渗透率',
-                text=region_penetration['渗透率'].apply(lambda x: f"{x:.2f}%"),
-                color='所属区域',
-                title='各区域新品渗透率',
-                labels={'渗透率': '渗透率 (%)', '所属区域': '区域'},
-                height=500
-            )
-
-            fig_penetration.update_traces(
-                textposition='outside',
-                textfont=dict(size=14)
-            )
-
-            fig_penetration.update_layout(
-                xaxis_title=dict(text="区域", font=dict(size=16)),
-                yaxis_title=dict(text="渗透率 (%)", font=dict(size=16)),
-                xaxis_tickfont=dict(size=14),
-                yaxis_tickfont=dict(size=14),
-                margin=dict(t=60, b=80, l=80, r=60),
-                plot_bgcolor='rgba(0,0,0,0)',
-                showlegend=False
-            )
-
-            st.plotly_chart(fig_penetration, use_container_width=True)
+            
 
             # 渗透率和销售额关系
             st.markdown('<div class="sub-header section-gap">渗透率与销售额的关系</div>', unsafe_allow_html=True)
